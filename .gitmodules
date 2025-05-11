@@ -1,0 +1,9 @@
+[submodule "nvim-treesitter"]
+	path = nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "plugins/start/treesitter"]
+	path = plugins/start/treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "plugins/start/fugitive"]
+	path = plugins/start/fugitive
+	url = https://github.com/tpope/vim-fugitive
