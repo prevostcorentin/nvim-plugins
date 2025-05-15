@@ -7,3 +7,9 @@
 [submodule "plugins/start/fugitive"]
 	path = plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "plugins/start/gitsigns"]
+	path = plugins/start/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "colors/start/catppuccin"]
+	path = colors/start/catppuccin
+	url = https://github.com/catppuccin/nvim
