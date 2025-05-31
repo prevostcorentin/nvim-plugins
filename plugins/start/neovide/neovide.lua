@@ -1,0 +1,29 @@
+if vim.g.neovide then
+    vim.g.neovide_text_gamma = 0.8
+    vim.g.neovide_text_contrast = 0.1
+    vim.g.neovide_floating_shadow = true
+    vim.g.neovide_floating_z_height = 10
+    vim.g.neovide_light_angle_degrees = 45
+    vim.g.neovide_light_radius = 5
+    vim.g.neovide_floating_corner_radius = 0.3
+    vim.g.neovide_scroll_animation_length = 0.3
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_confirm_quit = true
+    vim.g.neovide_detach_on_quit = "always_detach"
+    vim.g.neovide_fullscreen = true
+    vim.g.neovide_cursor_hack = true
+    vim.g.neovide_cursor_animation_length = 0.34
+    vim.g.neovide_cursor_short_animation_length = 0.03
+    vim.g.neovide_cursor_trail_size = 0.7
+    vim.g.neovide_cursor_antialiasing = true
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_command_line = false
+    vim.g.neovide_cursor_unfocused_outline_width = 0.125
+    vim.g.neovide_cursor_smooth_blink = false
+    vim.g.neovide_cursor_vfx_mode = {"pixiedust", "sonicboom"}
+    vim.g.neovide_cursor_vfx_opacity = 50.0
+    vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.5
+    vim.g.neovide_cursor_vfx_particle_lifetime = 1
+    vim.g.neovide_cursor_vfx_particle_density = 0.7
+    vim.g.neovide_cursor_vfx_particle_speed = 5.0
+end
