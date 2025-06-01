@@ -1,10 +1,18 @@
+-- This is a function because it could be called after the initialization
+-- if neovide is attaching to a nvim instance. In this case, init_neovide() is 
+-- invoked through RPC channel before neovide launching
 function init_neovide()
+    if vim.g.neovide_theme == 'dark' then
+        vim.g.neovide_text_gamma = 1
+        vim.g.neovide_text_contrast = 1
+    else
+        vim.g.neovide_text_gamma = 0.8
+        vim.g.neovide_text_contrast = 0.1
+    end
     if vim.g.neovide_initialized then
         return
     end
     vim.g.neovide_initialized = true
-    vim.g.neovide_text_gamma = 0.8
-    vim.g.neovide_text_contrast = 0.1
     vim.g.neovide_floating_shadow = true
     vim.g.neovide_floating_z_height = 10
     vim.g.neovide_light_angle_degrees = 45
@@ -30,4 +38,9 @@ function init_neovide()
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
     vim.g.neovide_cursor_vfx_particle_density = 0.7
     vim.g.neovide_cursor_vfx_particle_speed = 5.0
+end
+
+-- If neovide is started as a standalone executable
+if vim.g.neovide then
+    init_neovide()
 end
