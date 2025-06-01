@@ -16,3 +16,6 @@
 [submodule "plugins/start/lsp"]
 	path = plugins/start/lsp
 	url = ssh://git@github.com/prevostcorentin/nvim-lsp-config
+[submodule "plugins/opt/nvim-dap"]
+	path = plugins/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap

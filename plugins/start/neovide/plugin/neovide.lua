@@ -1,6 +1,5 @@
--- This is a function because it could be called after the initialization
--- if neovide is attaching to a nvim instance. In this case, init_neovide() is 
--- invoked through RPC channel before neovide launching
+-- If Neovide is attaching to an existing Neovim instance,
+-- init_neovide() will be invoked via the RPC channel *before* Neovide fully launches.
 function init_neovide()
     if vim.g.neovide_theme == 'dark' then
         vim.g.neovide_text_gamma = 1
@@ -32,7 +31,7 @@ function init_neovide()
     vim.g.neovide_cursor_animate_command_line = false
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
     vim.g.neovide_cursor_smooth_blink = false
-    vim.g.neovide_cursor_vfx_mode = {"railgun", "sonicboom"}
+    vim.g.neovide_cursor_vfx_mode = { "railgun", "sonicboom" }
     vim.g.neovide_cursor_vfx_opacity = 50.0
     vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.5
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
