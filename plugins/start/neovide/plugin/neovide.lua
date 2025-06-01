@@ -1,4 +1,8 @@
-if vim.g.neovide then
+function init_neovide()
+    if vim.g.neovide_initialized then
+        return
+    end
+    vim.g.neovide_initialized = true
     vim.g.neovide_text_gamma = 0.8
     vim.g.neovide_text_contrast = 0.1
     vim.g.neovide_floating_shadow = true
@@ -20,7 +24,7 @@ if vim.g.neovide then
     vim.g.neovide_cursor_animate_command_line = false
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
     vim.g.neovide_cursor_smooth_blink = false
-    vim.g.neovide_cursor_vfx_mode = {"pixiedust", "sonicboom"}
+    vim.g.neovide_cursor_vfx_mode = {"railgun", "sonicboom"}
     vim.g.neovide_cursor_vfx_opacity = 50.0
     vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.5
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
