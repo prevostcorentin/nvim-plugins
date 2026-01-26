@@ -1,7 +1,7 @@
 -- If Neovide is attaching to an existing Neovim instance,
 -- init_neovide() will be invoked via the RPC channel *before* Neovide fully launches.
-function init_neovide()
-    if vim.g.neovide_theme == 'dark' then
+function _G.init_neovide()
+    if vim.o.background == 'dark' then
         vim.g.neovide_text_gamma = 1
         vim.g.neovide_text_contrast = 1
     else
@@ -21,7 +21,7 @@ function init_neovide()
     vim.g.neovide_hide_mouse_when_typing = true
     vim.g.neovide_confirm_quit = true
     vim.g.neovide_detach_on_quit = "always_detach"
-    vim.g.neovide_fullscreen = true
+    vim.g.neovide_fullscreen = false
     vim.g.neovide_cursor_hack = true
     vim.g.neovide_cursor_animation_length = 0.34
     vim.g.neovide_cursor_short_animation_length = 0.03
@@ -37,9 +37,27 @@ function init_neovide()
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
     vim.g.neovide_cursor_vfx_particle_density = 0.7
     vim.g.neovide_cursor_vfx_particle_speed = 5.0
+
+    vim.notify("Neovide plugin initialized ...")
 end
 
 -- If neovide is started as a standalone executable
-if vim.g.neovide then
+if vim.fn.has("neovide") then
+    _G.init_neovide()
+end
+
+function _G.switch_background_color()
+    if vim.o.background == "light" then
+        vim.o.background = "dark"
+        vim.g.neovide_theme = "dark"
+    elseif vim.o.background == "dark" then
+        vim.o.background = "light"
+        vim.g.neovide_theme = "light"
+    end
+    vim.api.nvim_command("set bg=" .. vim.o.background)
     init_neovide()
 end
+
+local neovide_leader = "<leader>n"
+vim.api.nvim_create_user_command("SwitchBackgroundColor", _G.switch_background_color, {})
+vim.api.nvim_set_keymap('n', neovide_leader .. 'bc', ':SwitchBackgroundColor<lf>', {})
