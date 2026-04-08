@@ -8,6 +8,15 @@ return function(dap)
         }
     }
 
+    dap.adapters.delve = {
+        type = "server",
+        port = "${port}",
+        executable = {
+            command = "dlv",
+            args = { "test", "-l", "127.0.0.1:${port}" }
+        }
+    }
+
     dap.configurations.go = {
         {
             type = "go",
@@ -19,6 +28,7 @@ return function(dap)
             type = "delve",
             name = "Debug test",
             request = "launch",
+            detached = false,
             mode = "test",
             program = "./${relativeFileDirname}"
         }

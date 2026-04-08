@@ -19,4 +19,17 @@ function _G.LoadDAP()
     vim.notify("nvim-dap is lit 🔥", vim.log.levels.INFO)
 end
 
+function _G.ShowScopesSidebar()
+    local widgets = require('dap.ui.widgets')
+    local my_sidebar = widgets.sidebar(widgets.scopes)
+    my_sidebar.open()
+end
+
+function _G.ShowFramesFloatingWindow()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.frames)
+end
+
 vim.api.nvim_create_user_command("LoadDAP", LoadDAP, {})
+vim.api.nvim_create_user_command("DapShowScopesFloatingWindow", ShowFramesFloatingWindow, {})
+vim.api.nvim_create_user_command("DapShowFramesSidebar", ShowScopesSidebar, {})
