@@ -2,9 +2,8 @@
 -- init_neovide() will be invoked via the RPC channel *before* Neovide fully launches.
 function _G.init_neovide()
     -- Only applies if neovide is started as a standalone executable
-    if not vim.fn.has("neovide") then
-        vim.notify("Can not initialize NeoVide: NeoVide is not launched",
-            vim.log.levels.WARN)
+    if not vim.fn.has("gui_running") then
+        vim.notify("Not in a NeoVide session", vim.log.levels.WARN, { title = "NeoVide initialization" })
         return
     end
 
@@ -17,8 +16,6 @@ function _G.init_neovide()
     end
 
     if vim.g.neovide_initialized then
-        vim.notify("Can not initialize NeoVide: NeoVide is already initialized",
-            vim.log.levels.WARN)
         return
     end
 
@@ -49,8 +46,6 @@ function _G.init_neovide()
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
     vim.g.neovide_cursor_vfx_particle_density = 0.7
     vim.g.neovide_cursor_vfx_particle_speed = 5.0
-
-    vim.notify("Neovide plugin initialized ...")
 end
 
 _G.init_neovide()
@@ -59,11 +54,9 @@ function _G.switch_background_color()
     if vim.o.background == "light" then
         vim.o.background = "dark"
         vim.g.neovide_theme = "dark"
-        vim.notify("Dark color scheme", vim.log.levels.INFO)
     elseif vim.o.background == "dark" then
         vim.o.background = "light"
         vim.g.neovide_theme = "light"
-        vim.notify("Light color scheme", vim.log.levels.INFO)
     end
     vim.api.nvim_command("set bg=" .. vim.o.background)
     init_neovide()

@@ -3,7 +3,7 @@ function _G.LoadDAP()
 
     local is_dap_present, dap = pcall(require, "dap")
     if not is_dap_present then
-        vim.notify("Failed to load nvim-dap", vim.log.levels.ERROR)
+        vim.notify("nvim-dap is not installed", vim.log.levels.ERROR, { title = "Plugins" })
         return
     end
 
@@ -12,11 +12,12 @@ function _G.LoadDAP()
         if config_present and type(configure_dap) == "function" then
             configure_dap(dap)
         else
-            vim.notify("Failed to load '" .. language .. "' DAP configuration")
+            vim.notify("Failed to load '" .. language .. "' DAP configuration", vim.log.levels.ERROR,
+                { title = "Debugger", icon = "☹" })
         end
     end
 
-    vim.notify("nvim-dap is lit 🔥", vim.log.levels.INFO)
+    vim.notify("Ready to explore stack traces", vim.log.levels.INFO, { title = "Debugger", icon = "🔥" })
 end
 
 function _G.ShowScopesSidebar()

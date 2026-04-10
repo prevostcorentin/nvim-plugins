@@ -19,3 +19,6 @@
 [submodule "plugins/opt/nvim-dap"]
 	path = plugins/opt/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap
+[submodule "plugins/start/nvim-notify"]
+	path = plugins/opt/nvim-notify
+	url = https://github.com/rcarriga/nvim-notify

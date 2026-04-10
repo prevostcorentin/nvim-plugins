@@ -34,5 +34,5 @@ return function(dap)
         }
     }
 
-    vim.notify("Delve is ready to dance 🔍🐛", vim.log.levels.INFO)
+    vim.notify("Golang debugger ready", vim.log.levels.INFO, { title = "Debugger", icon = "🔍🐛" })
 end
