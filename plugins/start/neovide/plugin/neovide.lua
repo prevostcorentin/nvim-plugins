@@ -46,6 +46,7 @@ function _G.init_neovide()
     vim.g.neovide_cursor_vfx_particle_lifetime = 1
     vim.g.neovide_cursor_vfx_particle_density = 0.7
     vim.g.neovide_cursor_vfx_particle_speed = 5.0
+    vim.g.neovide_opacity = 0.7
 end
 
 _G.init_neovide()
